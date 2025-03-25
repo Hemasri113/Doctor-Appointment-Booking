@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Appointment Booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #969393;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            background: white;
+            width: 50%;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-top: 10px;
+            text-align: left;
+            font-weight: bold;
+        }
+        input {
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        #confirmation {
+            margin-top: 20px;
+            font-weight: bold;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Book a Doctor Appointment</h2>
+        <form id="appointmentForm">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" required>
+
+            <label for="date">Choose Date:</label>
+            <input type="date" id="date" required>
+
+            <label for="time">Choose Time:</label>
+            <input type="time" id="time" required>
+
+            <button type="submit">Book Appointment</button>
+        </form>
+
+        <div id="confirmation"></div>
+    </div>
+
+    <script>
+        document.getElementById("appointmentForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let phone = document.getElementById("phone").value;
+            let date = document.getElementById("date").value;
+            let time = document.getElementById("time").value;
+
+            let selectedDate = new Date(date);
+            let today = new Date();
+            if (selectedDate < today.setHours(0, 0, 0, 0)) {
+                alert("Please select a future date for the appointment.");
+                return;
+            }
+
+            document.getElementById("confirmation").innerHTML = 
+                `✅ Appointment confirmed for <b>${name}</b> on <b>${date}</b> at <b>${time}</b>.<br>
+                 We will contact you at ${phone} or ${email}.`;
+
+            document.getElementById("appointmentForm").reset();
+        });
+    </script>
+
+</body>
+</html>

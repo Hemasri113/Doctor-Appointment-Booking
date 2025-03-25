@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Selection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            background: grey;
+            width: 50%;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(151, 100, 168, 0.1);
+        }
+        h2 {
+            color: black;
+        }
+        .doctor-list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .doctor {
+            background: #fff;
+            width: 80%;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+            color: black;
+        }
+        .doctor:hover {
+            background: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Select a Doctor</h2>
+        <div class="doctor-list">
+            <a href="booking.html?doctor=Dr. Rajesh Khanna&Opthalmologist" class="doctor">
+                <h3>Dr. Rajesh Khanna</h3>
+                <p>Opthalmologist</p>
+            </a>
+            <a href="booking.html?doctor=Dr. Sophia Patel&ENT specialist" class="doctor">
+                <h3>Dr. Sophia Patel</h3>
+                <p>ENT specialist</p>
+            </a>
+            <a href="booking.html?doctor=Dr. Anita Reddy&Neurologist" class="doctor">
+                <h3>Dr. Anita Reddy</h3>
+                <p>Neurologist</p>
+            </a>
+            <a href="booking.html?doctor=Dr. Chaitanya&Dermatologist" class="doctor">
+                <h3>Dr. Chaitanya </h3>
+                <p>Dermatologist</p>
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>
